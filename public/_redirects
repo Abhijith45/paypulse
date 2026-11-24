@@ -1,0 +1,10 @@
+# ==========================================
+# PayPulse — Netlify Redirects File
+# Placed in public/ to be copied to dist/ root
+# ==========================================
+
+# Direct root comparison redirect
+/compare        /       301!
+
+# Legacy or alias redirect
+/calculator     /       301!

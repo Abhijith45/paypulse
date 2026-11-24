@@ -30,23 +30,23 @@ function setTarget(amount: number) {
 </script>
 
 <template>
-  <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm space-y-6">
+  <div class="bg-white dark:bg-[#181818] rounded-2xl border border-slate-200 dark:border-[#272727] p-6 shadow-sm space-y-6">
     <div>
-      <div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 dark:bg-purple-950 dark:text-purple-300 mb-2">
-        🎯 Target In-Hand Negotiator
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 mb-3 border border-emerald-200/80 dark:border-emerald-800/60">
+        <span>🎯 Target in-hand negotiator</span>
       </div>
       <h3 class="text-base font-bold text-slate-900 dark:text-white">
-        What Monthly In-Hand Pay Do You Want in Your Bank Account?
+        What monthly in-hand pay do you want in your bank account?
       </h3>
-      <p class="text-xs text-slate-500 mt-0.5">
+      <p class="text-xs text-slate-500 dark:text-[#A3A3A3] mt-1">
         PayPulse solves the inverse tax and deduction equation to calculate the exact CTC to quote HR.
       </p>
     </div>
 
     <!-- Quick Target Chips -->
     <div>
-      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">
-        Target Milestones
+      <div class="text-xs font-semibold text-slate-500 dark:text-[#A3A3A3] mb-2.5">
+        Target milestones
       </div>
       <div class="flex flex-wrap gap-2">
         <button
@@ -55,9 +55,9 @@ function setTarget(amount: number) {
           type="button"
           @click="setTarget(chip.value)"
           :class="modelValue.targetMonthlyInHand === chip.value
-            ? 'bg-purple-600 text-white font-bold shadow-sm'
-            : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium'"
-          class="px-3 py-1.5 rounded-lg text-xs transition"
+            ? 'bg-emerald-600 text-white font-semibold shadow-sm'
+            : 'bg-slate-100 hover:bg-slate-200 dark:bg-[#1F1F1F] dark:hover:bg-[#272727] text-slate-700 dark:text-[#A3A3A3] font-medium border border-transparent dark:border-[#313131]'"
+          class="px-3 py-1.5 rounded-lg text-xs transition focus:outline-none focus:ring-2 focus:ring-emerald-500/30"
         >
           {{ chip.label }}
         </button>
@@ -67,35 +67,35 @@ function setTarget(amount: number) {
     <!-- Target Monthly Input -->
     <div>
       <SmartCurrencyInput
-        label="Desired Monthly In-Hand Salary"
+        label="Desired monthly in-hand salary"
         placeholder="e.g. 100000 or 1L"
         :model-value="modelValue.targetMonthlyInHand"
         @update:model-value="setTarget($event)"
       />
     </div>
 
-    <!-- Reverse Calculation Output Hero Card -->
-    <div class="bg-gradient-to-br from-purple-500/10 via-purple-500/5 to-transparent border border-purple-200 dark:border-purple-800/40 rounded-2xl p-6 text-center">
-      <div class="text-xs font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400 mb-1">
-        Minimum Annual CTC to Quote HR
+    <!-- Reverse Calculation Output Hero Card (Nested radius: 16 -> 12, flat surface) -->
+    <div class="bg-slate-50 dark:bg-[#1F1F1F] border border-slate-200/80 dark:border-[#313131] rounded-xl p-6 text-center">
+      <div class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 mb-1">
+        Minimum annual CTC to quote HR
       </div>
 
-      <div class="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
+      <div class="text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white tracking-tight">
         {{ formatLpa(reverseResult.requiredAnnualCtc) }}
       </div>
 
-      <div class="text-sm font-semibold text-slate-600 dark:text-slate-400 mt-2">
+      <div class="text-sm font-semibold text-slate-600 dark:text-[#A3A3A3] mt-2">
         Exact CTC: {{ formatIndianCurrency(reverseResult.requiredAnnualCtc) }} / year
       </div>
 
-      <div class="mt-4 pt-4 border-t border-purple-100 dark:border-purple-900/30 text-xs text-slate-500 grid grid-cols-2 gap-2 text-left">
+      <div class="mt-4 pt-4 border-t border-slate-200/60 dark:border-[#272727] text-xs text-slate-500 dark:text-[#A3A3A3] grid grid-cols-2 gap-2 text-left">
         <div>
-          <span class="text-slate-400">Monthly Gross CTC:</span>
-          <span class="font-bold text-slate-800 dark:text-slate-200 block">{{ formatIndianCurrency(reverseResult.requiredMonthlyCtc) }}</span>
+          <span class="text-slate-400 dark:text-[#737373] block text-[11px]">Monthly gross CTC:</span>
+          <span class="font-semibold text-slate-800 dark:text-slate-200 block mt-0.5">{{ formatIndianCurrency(reverseResult.requiredMonthlyCtc) }}</span>
         </div>
         <div>
-          <span class="text-slate-400">Est. Annual Taxes & PF:</span>
-          <span class="font-bold text-rose-600 dark:text-rose-400 block">{{ formatIndianCurrency(reverseResult.requiredAnnualCtc - (modelValue.targetMonthlyInHand * 12)) }}</span>
+          <span class="text-slate-400 dark:text-[#737373] block text-[11px]">Est. annual taxes & PF:</span>
+          <span class="font-semibold text-rose-600 dark:text-rose-400 block mt-0.5">{{ formatIndianCurrency(reverseResult.requiredAnnualCtc - (modelValue.targetMonthlyInHand * 12)) }}</span>
         </div>
       </div>
     </div>

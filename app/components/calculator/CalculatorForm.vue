@@ -112,11 +112,11 @@ const citySavingsVsBangalore = computed(() => {
 </script>
 
 <template>
-  <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm space-y-6">
+  <div class="bg-white dark:bg-[#181818] rounded-2xl border border-slate-200 dark:border-[#272727] p-6 shadow-sm space-y-6">
     <!-- Quick Milestone Chips -->
     <div>
-      <div class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2.5">
-        Popular Milestones
+      <div class="text-xs font-semibold text-slate-500 dark:text-[#A3A3A3] mb-2.5">
+        Popular milestones
       </div>
       <div class="flex flex-wrap gap-2">
         <button
@@ -125,9 +125,9 @@ const citySavingsVsBangalore = computed(() => {
           type="button"
           @click="updateField('annualCtc', chip.value)"
           :class="modelValue.annualCtc === chip.value
-            ? 'bg-emerald-600 text-white font-bold shadow-sm'
-            : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium'"
-          class="px-3 py-1.5 rounded-lg text-xs transition"
+            ? 'bg-emerald-600 text-white font-semibold shadow-sm'
+            : 'bg-slate-100 hover:bg-slate-200 dark:bg-[#1F1F1F] dark:hover:bg-[#272727] text-slate-700 dark:text-[#A3A3A3] font-medium border border-transparent dark:border-[#313131]'"
+          class="px-3 py-1.5 rounded-lg text-xs transition focus:outline-none focus:ring-2 focus:ring-emerald-500/30"
         >
           {{ chip.label }}
         </button>
@@ -150,9 +150,9 @@ const citySavingsVsBangalore = computed(() => {
           step="25000"
           :value="modelValue.annualCtc"
           @input="updateField('annualCtc', parseInt(($event.target as HTMLInputElement).value, 10))"
-          class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-emerald-500"
+          class="w-full h-2 bg-slate-200 dark:bg-[#272727] rounded-lg appearance-none cursor-pointer accent-emerald-500"
         />
-        <div class="flex justify-between text-[11px] text-slate-400 mt-1 font-medium">
+        <div class="flex justify-between text-[11px] text-slate-400 dark:text-[#737373] mt-1 font-medium">
           <span>₹1 Lakh</span>
           <span>₹25 Lakhs</span>
           <span>₹50 Lakhs</span>
@@ -164,43 +164,43 @@ const citySavingsVsBangalore = computed(() => {
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
       <!-- Tax Regime -->
       <div>
-        <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">
-          Tax Regime (FY 2025-26)
+        <label class="block text-xs font-semibold text-slate-500 dark:text-[#A3A3A3] mb-2">
+          Tax regime (FY 2025–26)
         </label>
-        <div class="grid grid-cols-2 p-1 bg-slate-100 dark:bg-slate-800 rounded-xl">
+        <div class="grid grid-cols-2 p-1 bg-slate-100 dark:bg-[#1F1F1F] rounded-xl border border-transparent dark:border-[#272727]">
           <button
             type="button"
             @click="updateField('regime', 'new')"
             :class="modelValue.regime === 'new'
-              ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold shadow-sm'
-              : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 font-medium'"
-            class="py-2 text-xs rounded-lg transition"
+              ? 'bg-white dark:bg-[#181818] text-slate-900 dark:text-white font-semibold shadow-sm border border-slate-200/60 dark:border-[#313131]'
+              : 'text-slate-600 dark:text-[#A3A3A3] hover:text-slate-900 dark:hover:text-white font-medium'"
+            class="py-2 text-xs rounded-lg transition focus:outline-none focus:ring-2 focus:ring-emerald-500/30"
           >
-            New Regime
+            New regime
           </button>
           <button
             type="button"
             @click="updateField('regime', 'old')"
             :class="modelValue.regime === 'old'
-              ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold shadow-sm'
-              : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 font-medium'"
-            class="py-2 text-xs rounded-lg transition"
+              ? 'bg-white dark:bg-[#181818] text-slate-900 dark:text-white font-semibold shadow-sm border border-slate-200/60 dark:border-[#313131]'
+              : 'text-slate-600 dark:text-[#A3A3A3] hover:text-slate-900 dark:hover:text-white font-medium'"
+            class="py-2 text-xs rounded-lg transition focus:outline-none focus:ring-2 focus:ring-emerald-500/30"
           >
-            Old Regime
+            Old regime
           </button>
         </div>
       </div>
 
       <!-- City Selector -->
       <div>
-        <label for="city-select" class="block text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">
-          Work City / Cost of Living
+        <label for="city-select" class="block text-xs font-semibold text-slate-500 dark:text-[#A3A3A3] mb-2">
+          Work city / Cost of living
         </label>
         <select
           id="city-select"
           :value="modelValue.city"
           @change="updateField('city', ($event.target as HTMLSelectElement).value as CityKey)"
-          class="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 py-2.5 px-3 text-xs font-semibold text-slate-900 dark:text-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
+          class="w-full rounded-xl border border-slate-300 dark:border-[#313131] bg-white dark:bg-[#1F1F1F] py-2 px-3 text-xs font-semibold text-slate-900 dark:text-white focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20"
         >
           <option v-for="(city, key) in CITIES" :key="key" :value="key">
             {{ city.name }} ({{ city.tier === 'tier-1' ? 'Tier 1' : 'Tier 2' }} · 1BHK ~₹{{ (city.medianRent1BHK / 1000).toFixed(0) }}k)
@@ -209,53 +209,53 @@ const citySavingsVsBangalore = computed(() => {
       </div>
     </div>
 
-    <!-- Reactive City Cost of Living Context Card -->
-    <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 text-xs">
+    <!-- Reactive City Cost of Living Context Card (Nested radius: 16 -> 12) -->
+    <div class="p-4 rounded-xl bg-slate-50 dark:bg-[#1F1F1F] border border-slate-200/80 dark:border-[#313131] text-xs">
       <div class="flex items-center justify-between font-bold text-slate-800 dark:text-slate-200 mb-1.5">
         <span class="flex items-center gap-1.5">
           <span>📍</span>
-          <span>{{ activeCity.name }} Profile ({{ activeCity.tier === 'tier-1' ? 'Tier 1 Metro' : 'Tier 2 City' }})</span>
+          <span>{{ activeCity.name }} profile ({{ activeCity.tier === 'tier-1' ? 'Tier 1 Metro' : 'Tier 2 City' }})</span>
         </span>
         <span
           v-if="activeCity.professionalTaxAnnual === 0"
-          class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 font-bold"
+          class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 font-semibold"
         >
-          ₹0 Professional Tax
+          ₹0 professional tax
         </span>
         <span
           v-else
-          class="text-[10px] text-slate-500"
+          class="text-[10px] text-slate-500 dark:text-[#A3A3A3]"
         >
           PT: {{ formatIndianCurrency(activeCity.professionalTaxAnnual) }}/yr
         </span>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-slate-600 dark:text-slate-300 mt-2 pt-2 border-t border-slate-200/50 dark:border-slate-700/50">
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-slate-600 dark:text-[#A3A3A3] mt-2 pt-2 border-t border-slate-200/60 dark:border-[#272727]">
         <div>
-          <span class="text-slate-400 block text-[10px]">Median 1BHK Rent:</span>
-          <span class="font-bold text-slate-900 dark:text-white">~{{ formatIndianCurrency(activeCity.medianRent1BHK) }}/mo</span>
+          <span class="text-slate-400 dark:text-[#737373] block text-[10px]">Median 1BHK rent:</span>
+          <span class="font-semibold text-slate-900 dark:text-white">~{{ formatIndianCurrency(activeCity.medianRent1BHK) }}/mo</span>
         </div>
         <div>
-          <span class="text-slate-400 block text-[10px]">Living Essentials:</span>
-          <span class="font-bold text-slate-900 dark:text-white">~{{ formatIndianCurrency(activeCity.baselineLivingCost) }}/mo</span>
+          <span class="text-slate-400 dark:text-[#737373] block text-[10px]">Living essentials:</span>
+          <span class="font-semibold text-slate-900 dark:text-white">~{{ formatIndianCurrency(activeCity.baselineLivingCost) }}/mo</span>
         </div>
         <div class="col-span-2 sm:col-span-1">
-          <span class="text-slate-400 block text-[10px]">Rent vs Bengaluru:</span>
+          <span class="text-slate-400 dark:text-[#737373] block text-[10px]">Rent vs Bengaluru:</span>
           <span
             v-if="citySavingsVsBangalore > 0"
-            class="font-bold text-emerald-600 dark:text-emerald-400"
+            class="font-semibold text-emerald-600 dark:text-emerald-400"
           >
             Save ~₹{{ citySavingsVsBangalore.toLocaleString('en-IN') }}/mo
           </span>
           <span
             v-else-if="citySavingsVsBangalore < 0"
-            class="font-bold text-rose-500"
+            class="font-semibold text-rose-500"
           >
             +₹{{ Math.abs(citySavingsVsBangalore).toLocaleString('en-IN') }}/mo higher
           </span>
           <span
             v-else
-            class="font-bold text-slate-500"
+            class="font-semibold text-slate-500 dark:text-[#737373]"
           >
             Baseline tech hub
           </span>
@@ -264,25 +264,25 @@ const citySavingsVsBangalore = computed(() => {
     </div>
 
     <!-- Expandable Offer De-Jargonizer Accordion -->
-    <div class="pt-2 border-t border-slate-100 dark:border-slate-800">
+    <div class="pt-2 border-t border-slate-100 dark:border-[#272727]">
       <button
         type="button"
         @click="toggleDeJargonizer"
-        class="w-full flex items-center justify-between text-left py-2 text-xs font-bold text-slate-700 dark:text-slate-300 hover:text-emerald-600 transition"
+        class="w-full flex items-center justify-between text-left py-2 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition"
       >
-        <span class="flex items-center gap-1.5">
-          <span>⚙️ Advanced Settings & Salary Composition</span>
-          <span v-if="showDeJargonizer" class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold">Active</span>
+        <span class="flex items-center gap-2">
+          <span>⚙️ Advanced settings and salary composition</span>
+          <span v-if="showDeJargonizer" class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 font-bold">Active</span>
         </span>
         <span class="text-sm font-mono">{{ showDeJargonizer ? '−' : '+' }}</span>
       </button>
 
-      <div v-if="showDeJargonizer" class="mt-4 space-y-5 text-xs bg-slate-50 dark:bg-slate-800/40 p-4 rounded-xl border border-slate-200/60 dark:border-slate-800">
+      <div v-if="showDeJargonizer" class="mt-4 space-y-5 text-xs bg-slate-50 dark:bg-[#1F1F1F] p-4 rounded-xl border border-slate-200/80 dark:border-[#313131]">
         <!-- Gratuity Provision -->
         <label class="flex items-center justify-between cursor-pointer">
           <div>
-            <div class="font-semibold text-slate-800 dark:text-slate-200">Deduct Gratuity (4.81% of Basic)</div>
-            <div class="text-[11px] text-slate-500">Withheld statutory provision employees never see monthly</div>
+            <div class="font-semibold text-slate-800 dark:text-slate-200">Deduct gratuity (4.81% of basic)</div>
+            <div class="text-[11px] text-slate-500 dark:text-[#A3A3A3]">Withheld statutory provision employees never receive monthly</div>
           </div>
           <input
             type="checkbox"
@@ -295,8 +295,8 @@ const citySavingsVsBangalore = computed(() => {
         <!-- Statutory EPF Capping -->
         <label class="flex items-center justify-between cursor-pointer">
           <div>
-            <div class="font-semibold text-slate-800 dark:text-slate-200">Cap EPF at Statutory ₹1,800/month</div>
-            <div class="text-[11px] text-slate-500">Uncapped 12% is standard in Tech; Capped is common in legacy corporate</div>
+            <div class="font-semibold text-slate-800 dark:text-slate-200">Cap EPF at statutory ₹1,800/month</div>
+            <div class="text-[11px] text-slate-500 dark:text-[#A3A3A3]">Uncapped 12% is standard in Tech; Capped is common in legacy corporate</div>
           </div>
           <input
             type="checkbox"
@@ -309,8 +309,8 @@ const citySavingsVsBangalore = computed(() => {
         <!-- Employer PF Included -->
         <label class="flex items-center justify-between cursor-pointer">
           <div>
-            <div class="font-semibold text-slate-800 dark:text-slate-200">Employer EPF Included in CTC</div>
-            <div class="text-[11px] text-slate-500">Standard Indian corporate practice (deducted from gross)</div>
+            <div class="font-semibold text-slate-800 dark:text-slate-200">Employer EPF included in CTC</div>
+            <div class="text-[11px] text-slate-500 dark:text-[#A3A3A3]">Standard Indian corporate practice (deducted from gross)</div>
           </div>
           <input
             type="checkbox"
@@ -321,11 +321,11 @@ const citySavingsVsBangalore = computed(() => {
         </label>
 
         <!-- Granular Variable Pay %: Direct Number Input + Slider -->
-        <div class="pt-2 border-t border-slate-200/50 dark:border-slate-700/50">
+        <div class="pt-2 border-t border-slate-200/60 dark:border-[#272727]">
           <div class="flex items-center justify-between font-semibold text-slate-800 dark:text-slate-200 mb-1.5">
             <div>
-              <span>Annual Variable / Performance Bonus:</span>
-              <span class="text-[11px] text-slate-400 block font-normal">Supports 2-digit decimals (e.g. 12.35)</span>
+              <span>Annual variable / performance bonus:</span>
+              <span class="text-[11px] text-slate-400 dark:text-[#737373] block font-normal">Supports 2-digit decimals (e.g. 12.35)</span>
             </div>
             <div class="flex items-center gap-1">
               <input
@@ -337,7 +337,7 @@ const citySavingsVsBangalore = computed(() => {
                 @input="onVariableInputChange"
                 @change="onVariableInputChange"
                 @keydown.enter="onVariableInputChange"
-                class="w-20 px-2 py-1 text-right text-xs font-bold rounded-lg border border-purple-300 dark:border-purple-700 bg-white dark:bg-slate-900 text-purple-600 dark:text-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500 font-mono shadow-sm"
+                class="w-20 px-2 py-1 text-right text-xs font-bold rounded-lg border border-purple-300 dark:border-purple-800 bg-white dark:bg-[#181818] text-purple-600 dark:text-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500 font-mono shadow-sm"
               />
               <span class="text-xs font-bold text-purple-600 dark:text-purple-400">%</span>
             </div>
@@ -349,9 +349,9 @@ const citySavingsVsBangalore = computed(() => {
             step="0.05"
             :value="modelValue.variablePayPercentage ?? 0"
             @input="onVariableSliderChange"
-            class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-purple-500"
+            class="w-full h-2 bg-slate-200 dark:bg-[#272727] rounded-lg appearance-none cursor-pointer accent-purple-500"
           />
-          <div class="flex justify-between text-[10px] text-slate-400 mt-1 font-medium">
+          <div class="flex justify-between text-[10px] text-slate-400 dark:text-[#737373] mt-1 font-medium">
             <span>0%</span>
             <span>20%</span>
             <span>40%</span>
@@ -360,11 +360,11 @@ const citySavingsVsBangalore = computed(() => {
         </div>
 
         <!-- Granular Basic Pay %: Direct Number Input + Slider -->
-        <div class="pt-2 border-t border-slate-200/50 dark:border-slate-700/50">
+        <div class="pt-2 border-t border-slate-200/60 dark:border-[#272727]">
           <div class="flex items-center justify-between font-semibold text-slate-800 dark:text-slate-200 mb-1.5">
             <div>
-              <span>Basic Pay Percentage:</span>
-              <span class="text-[11px] text-slate-400 block font-normal">Supports 2-digit decimals (e.g. 42.50)</span>
+              <span>Basic pay percentage:</span>
+              <span class="text-[11px] text-slate-400 dark:text-[#737373] block font-normal">Supports 2-digit decimals (e.g. 42.50)</span>
             </div>
             <div class="flex items-center gap-1">
               <input
@@ -376,7 +376,7 @@ const citySavingsVsBangalore = computed(() => {
                 @input="onBasicInputChange"
                 @change="onBasicInputChange"
                 @keydown.enter="onBasicInputChange"
-                class="w-20 px-2 py-1 text-right text-xs font-bold rounded-lg border border-blue-300 dark:border-blue-700 bg-white dark:bg-slate-900 text-blue-600 dark:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono shadow-sm"
+                class="w-20 px-2 py-1 text-right text-xs font-bold rounded-lg border border-blue-300 dark:border-blue-800 bg-white dark:bg-[#181818] text-blue-600 dark:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono shadow-sm"
               />
               <span class="text-xs font-bold text-blue-600 dark:text-blue-400">%</span>
             </div>
@@ -388,9 +388,9 @@ const citySavingsVsBangalore = computed(() => {
             step="0.05"
             :value="modelValue.basicSalaryPercentage ?? 50"
             @input="onBasicSliderChange"
-            class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-500"
+            class="w-full h-2 bg-slate-200 dark:bg-[#272727] rounded-lg appearance-none cursor-pointer accent-blue-500"
           />
-          <div class="flex justify-between text-[10px] text-slate-400 mt-1 font-medium">
+          <div class="flex justify-between text-[10px] text-slate-400 dark:text-[#737373] mt-1 font-medium">
             <span>10%</span>
             <span>40% (Standard)</span>
             <span>50% (Tech)</span>

@@ -13,6 +13,12 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/tailwindcss'
   ],
+  components: [
+    {
+      path: '~/components',
+      pathPrefix: false,
+    },
+  ],
   app: {
     head: {
       title: 'PayPulse — CTC vs Take-Home & Career Comparison Hub',

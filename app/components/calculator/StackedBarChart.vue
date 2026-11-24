@@ -52,7 +52,7 @@ const segments = computed(() => {
 <template>
   <div class="w-full">
     <!-- Visual Multi-segment Bar -->
-    <div class="h-4 w-full flex rounded-full overflow-hidden bg-slate-100 dark:bg-slate-800 shadow-inner">
+    <div class="h-3.5 w-full flex rounded-full overflow-hidden bg-slate-100 dark:bg-[#1F1F1F] border border-slate-200/60 dark:border-[#272727]">
       <div
         v-for="seg in segments"
         :key="seg.label"
@@ -68,12 +68,12 @@ const segments = computed(() => {
       <div
         v-for="seg in segments"
         :key="seg.label"
-        class="flex items-center gap-1.5 p-1.5 rounded-lg bg-slate-50 dark:bg-slate-800/50"
+        class="flex items-center gap-2 p-2 rounded-lg bg-slate-50 dark:bg-[#1F1F1F] border border-slate-200/80 dark:border-[#313131]"
       >
         <span class="w-2.5 h-2.5 rounded-full shrink-0" :class="seg.color" />
         <div class="truncate">
-          <div class="font-medium text-slate-600 dark:text-slate-300 truncate">{{ seg.label }}</div>
-          <div class="font-bold text-slate-900 dark:text-white">{{ seg.percentage }}%</div>
+          <div class="font-medium text-slate-500 dark:text-[#A3A3A3] text-[11px] truncate">{{ seg.label }}</div>
+          <div class="font-semibold text-slate-900 dark:text-white">{{ seg.percentage }}%</div>
         </div>
       </div>
     </div>

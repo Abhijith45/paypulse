@@ -1,0 +1,6 @@
+# ==========================================
+# PayPulse — Netlify Redirects File (Root Copy)
+# ==========================================
+
+/compare        /       301!
+/calculator     /       301!

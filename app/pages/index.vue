@@ -9,6 +9,7 @@ import ReverseCalculatorForm from '../components/calculator/ReverseCalculatorFor
 import BreakdownSummary from '../components/calculator/BreakdownSummary.vue'
 import MobileStickyBar from '../components/calculator/MobileStickyBar.vue'
 import ComparisonTable from '../components/comparison/ComparisonTable.vue'
+import { useSeoMeta } from 'nuxt/app'
 
 // Active mode tab: 'forward' | 'reverse' | 'compare'
 const activeTab = ref<'forward' | 'reverse' | 'compare'>('forward')
@@ -32,56 +33,58 @@ useSeoMeta({
 
 <template>
   <div class="max-w-6xl mx-auto px-4 py-8 sm:py-12">
-    <!-- Hero Header -->
-    <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 mb-3 border border-emerald-200 dark:border-emerald-800/60">
-        <span>⚡ FY 2025–26 Tax Slabs Updated</span>
-        <span>· ₹75k Standard Deduction</span>
+    <!-- Hero Header (Strict Figma Designer Rules: max-w-[680px], no periods, dual-tone text gradient) -->
+    <div class="text-center max-w-[680px] mx-auto mb-8 sm:mb-10">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 mb-4 border border-emerald-200/80 dark:border-emerald-800/60">
+        <span>⚡ Budget FY 2025–26 updated</span>
+        <span>· ₹75,000 standard deduction</span>
       </div>
 
-      <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-slate-900 dark:text-white leading-tight">
-        Know Your <span class="bg-gradient-to-r from-emerald-600 to-teal-500 bg-clip-text text-transparent">Real In-Hand</span> Monthly Salary
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight bg-gradient-to-r from-black to-[#666666] dark:from-white dark:to-[#9B9B9B] bg-clip-text text-transparent leading-[1.12]">
+        Know your true take-home
+        <br />
+        before you sign
       </h1>
 
-      <p class="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-400">
-        Cost-to-Company (CTC) is misleading. Calculate your exact bank credit, uncover withheld gratuity & ESOPs, and compare offers across Indian tech hubs.
+      <p class="mt-4 text-base sm:text-lg text-slate-600 dark:text-[#A3A3A3] leading-relaxed">
+        Cost-to-Company is misleading. Calculate your exact bank credit, uncover withheld gratuity and ESOPs, and compare offers across Indian tech hubs.
       </p>
     </div>
 
-    <!-- Mode Selector Tabs -->
+    <!-- Mode Selector Tabs (Flat surface, spacing tokens, Button-sm typography) -->
     <div class="flex justify-center mb-8">
-      <div class="inline-flex p-1.5 bg-slate-200/80 dark:bg-slate-800/80 rounded-2xl shadow-inner max-w-full overflow-x-auto">
+      <div class="inline-flex p-1.5 bg-slate-100 dark:bg-[#1F1F1F] rounded-2xl border border-slate-200/60 dark:border-[#272727] max-w-full overflow-x-auto shadow-sm">
         <button
           type="button"
           @click="activeTab = 'forward'"
           :class="activeTab === 'forward'
-            ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold shadow-sm'
-            : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 font-semibold'"
-          class="px-4 py-2 text-xs sm:text-sm rounded-xl transition whitespace-nowrap"
+            ? 'bg-white dark:bg-[#181818] text-slate-900 dark:text-white font-semibold shadow-sm border border-slate-200/60 dark:border-[#313131]'
+            : 'text-slate-600 dark:text-[#A3A3A3] hover:text-slate-900 dark:hover:text-white font-medium'"
+          class="px-4 py-2 text-xs sm:text-sm rounded-xl transition whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-emerald-500/30"
         >
-          ⚡ Calculate Take-Home
+          ⚡ Calculate take-home
         </button>
 
         <button
           type="button"
           @click="activeTab = 'reverse'"
           :class="activeTab === 'reverse'
-            ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold shadow-sm'
-            : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 font-semibold'"
-          class="px-4 py-2 text-xs sm:text-sm rounded-xl transition whitespace-nowrap"
+            ? 'bg-white dark:bg-[#181818] text-slate-900 dark:text-white font-semibold shadow-sm border border-slate-200/60 dark:border-[#313131]'
+            : 'text-slate-600 dark:text-[#A3A3A3] hover:text-slate-900 dark:hover:text-white font-medium'"
+          class="px-4 py-2 text-xs sm:text-sm rounded-xl transition whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-emerald-500/30"
         >
-          🎯 Target In-Hand (Reverse)
+          🎯 Target in-hand negotiator
         </button>
 
         <button
           type="button"
           @click="activeTab = 'compare'"
           :class="activeTab === 'compare'
-            ? 'bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold shadow-sm'
-            : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 font-semibold'"
-          class="px-4 py-2 text-xs sm:text-sm rounded-xl transition whitespace-nowrap"
+            ? 'bg-white dark:bg-[#181818] text-slate-900 dark:text-white font-semibold shadow-sm border border-slate-200/60 dark:border-[#313131]'
+            : 'text-slate-600 dark:text-[#A3A3A3] hover:text-slate-900 dark:hover:text-white font-medium'"
+          class="px-4 py-2 text-xs sm:text-sm rounded-xl transition whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-emerald-500/30"
         >
-          ⚖️ Compare Two Offers
+          ⚖️ Compare two offers
         </button>
       </div>
     </div>
@@ -125,14 +128,14 @@ useSeoMeta({
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div>
           <div class="font-bold text-slate-900 dark:text-white text-base mb-3 flex items-center gap-2">
-            <span>Offer A Configuration</span>
+            <span>Offer A configuration</span>
           </div>
           <CalculatorForm v-model="comp.offerA.state.value" />
         </div>
 
         <div>
           <div class="font-bold text-slate-900 dark:text-white text-base mb-3 flex items-center gap-2">
-            <span>Offer B Configuration</span>
+            <span>Offer B configuration</span>
           </div>
           <CalculatorForm v-model="comp.offerB.state.value" />
         </div>

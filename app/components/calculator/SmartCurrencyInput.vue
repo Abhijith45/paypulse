@@ -61,7 +61,7 @@ const lpaBadge = computed(() => {
       </label>
       <span
         v-if="lpaBadge"
-        class="inline-flex items-center px-2 py-0.5 rounded text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-900/60 dark:text-emerald-300"
+        class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/60"
       >
         {{ lpaBadge }}
       </span>
@@ -78,14 +78,14 @@ const lpaBadge = computed(() => {
         :placeholder="placeholder"
         @input="onInput"
         @blur="onBlur"
-        class="block w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 py-3 pl-8 pr-12 text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 text-base font-semibold transition"
+        class="block w-full rounded-xl border border-slate-300 dark:border-[#313131] bg-white dark:bg-[#1F1F1F] py-3 pl-8 pr-12 text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-[#737373] focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/30 text-base font-semibold transition"
       />
-      <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-xs font-semibold text-slate-400">
+      <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-xs font-semibold text-slate-400 dark:text-[#737373]">
         INR
       </div>
     </div>
-    <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">
-      Type shorthand like <code class="font-mono bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">12.5</code>, <code class="font-mono bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded">12.5L</code>, or full rupee numbers.
+    <p class="mt-1.5 text-xs text-slate-500 dark:text-[#A3A3A3]">
+      Type shorthand like <code class="font-mono bg-slate-100 dark:bg-[#1F1F1F] px-1 py-0.5 rounded border border-slate-200/60 dark:border-[#313131]">12.5</code>, <code class="font-mono bg-slate-100 dark:bg-[#1F1F1F] px-1 py-0.5 rounded border border-slate-200/60 dark:border-[#313131]">12.5L</code>, or full rupee numbers.
     </p>
   </div>
 </template>

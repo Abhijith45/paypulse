@@ -112,54 +112,55 @@ function downloadCardAsPng() {
     class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
     @click.self="emit('close')"
   >
-    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-5 animate-in fade-in zoom-in-95">
-      <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
-        <div class="font-black text-slate-900 dark:text-white text-lg">
-          Share Your Calculation
+    <div class="bg-white dark:bg-[#181818] border border-slate-200 dark:border-[#272727] rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-5 animate-in fade-in zoom-in-95">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-[#272727]">
+        <div class="font-bold text-slate-900 dark:text-white text-base">
+          Share your calculation
         </div>
         <button
           type="button"
           @click="emit('close')"
-          class="text-xs font-bold text-slate-400 hover:text-slate-600 p-1"
+          class="text-xs font-semibold text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1.5 rounded-lg"
+          aria-label="Close"
         >
           ✕
         </button>
       </div>
 
       <div>
-        <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">
-          Shareable Link
+        <label class="block text-xs font-semibold text-slate-500 dark:text-[#A3A3A3] mb-1.5">
+          Shareable link
         </label>
         <div class="flex gap-2">
           <button
             type="button"
             @click="copyUrl"
-            class="flex-1 py-2.5 px-4 rounded-xl text-xs font-bold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition flex items-center justify-center gap-2"
+            class="flex-1 py-2.5 px-4 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-[#1F1F1F] dark:hover:bg-[#272727] text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-[#313131] transition flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-emerald-500/30"
           >
             <span>🔗</span>
-            <span>{{ copiedUrl ? 'Copied Link to Clipboard!' : 'Copy Shareable Link' }}</span>
+            <span>{{ copiedUrl ? 'Copied link to clipboard!' : 'Copy shareable link' }}</span>
           </button>
         </div>
       </div>
 
       <div>
         <div class="flex items-center justify-between mb-1.5">
-          <label class="text-xs font-bold uppercase tracking-wider text-slate-500">
-            Formatted Post Snippet (LinkedIn / X)
+          <label class="text-xs font-semibold text-slate-500 dark:text-[#A3A3A3]">
+            Formatted post snippet (LinkedIn / X)
           </label>
           <button
             type="button"
             @click="copySnippet"
-            class="text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:underline"
+            class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline"
           >
-            {{ copiedText ? '✓ Copied!' : 'Copy Text' }}
+            {{ copiedText ? '✓ Copied!' : 'Copy text' }}
           </button>
         </div>
         <textarea
           readonly
           :value="socialSnippet"
           rows="5"
-          class="w-full text-xs font-mono p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 resize-none focus:outline-none"
+          class="w-full text-xs font-mono p-3 rounded-xl border border-slate-200 dark:border-[#313131] bg-slate-50 dark:bg-[#1F1F1F] text-slate-700 dark:text-[#A3A3A3] resize-none focus:outline-none"
         />
       </div>
 
@@ -167,10 +168,10 @@ function downloadCardAsPng() {
         <button
           type="button"
           @click="downloadCardAsPng"
-          class="w-full py-3 px-4 rounded-xl text-xs font-bold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white shadow-md transition flex items-center justify-center gap-2"
+          class="w-full py-2.5 px-4 rounded-xl text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white shadow-sm transition flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-emerald-500/30"
         >
           <span>🖼️</span>
-          <span>Download Summary Card as PNG</span>
+          <span>Download summary card as PNG</span>
         </button>
       </div>
     </div>
