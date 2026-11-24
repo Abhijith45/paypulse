@@ -43,4 +43,21 @@ describe('Legal Pages & Navigation Integrity', () => {
     expect(content).toContain('Privacy Policy')
     expect(content).toContain('Terms and Conditions')
   })
+
+  it('verifies Netlify Forms integration in public/forms.html and SubmitReviewModal.vue', () => {
+    const formsHtmlPath = resolve(process.cwd(), 'public/forms.html')
+    expect(existsSync(formsHtmlPath)).toBe(true)
+
+    const formsContent = readFileSync(formsHtmlPath, 'utf-8')
+    expect(formsContent).toContain('name="salary-data-point"')
+    expect(formsContent).toContain('name="app-feedback"')
+    expect(formsContent).toContain('netlify-honeypot="bot-field"')
+
+    const modalPath = resolve(process.cwd(), 'app/components/common/SubmitReviewModal.vue')
+    const modalContent = readFileSync(modalPath, 'utf-8')
+    expect(modalContent).toContain('name="salary-data-point"')
+    expect(modalContent).toContain('name="app-feedback"')
+    expect(modalContent).toContain('form-name')
+    expect(modalContent).toContain('application/x-www-form-urlencoded')
+  })
 })

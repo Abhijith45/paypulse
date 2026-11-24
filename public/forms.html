@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PayPulse Netlify Forms Scraper Fallback</title>
+</head>
+<body>
+  <!-- 
+    Netlify Form 1: Anonymous Salary Data Point
+    Allows Indian tech professionals to submit real compensation packages.
+  -->
+  <form name="salary-data-point" netlify data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="salary-data-point" />
+    <input type="text" name="bot-field" />
+    <input type="text" name="company" />
+    <input type="text" name="role" />
+    <input type="text" name="experience" />
+    <input type="text" name="city" />
+    <input type="text" name="ctcLpa" />
+    <input type="text" name="inHandMonthly" />
+    <input type="text" name="transparencyRating" />
+    <textarea name="notes"></textarea>
+  </form>
+
+  <!-- 
+    Netlify Form 2: App Feedback & Suggestions
+    Collects user feedback on calculations, UI, and feature requests.
+  -->
+  <form name="app-feedback" netlify data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="app-feedback" />
+    <input type="text" name="bot-field" />
+    <input type="text" name="category" />
+    <input type="text" name="rating" />
+    <textarea name="message"></textarea>
+    <input type="text" name="wouldRecommend" />
+  </form>
+</body>
+</html>
