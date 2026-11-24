@@ -1,0 +1,60 @@
+# ==========================================
+# PayPulse — Comprehensive .gitignore
+# Nuxt 4 / Vue 3 / Nitro / Vite / TypeScript
+# ==========================================
+
+# Dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# Nuxt 4 & Nitro build outputs
+.nuxt/
+.output/
+.nitro/
+dist/
+.cache/
+
+# Environment variables & local secrets
+.env
+.env.*
+!.env.example
+*.local
+
+# Logs & debugging
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Testing & Coverage (Vitest)
+coverage/
+*.lcov
+.vitest/
+.nyc_output/
+
+# Temporary, scratch & cache directories
+tmp/
+temp/
+*.tmp
+scratch/
+
+# IDE & Editor files
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# Operating System files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+desktop.ini
